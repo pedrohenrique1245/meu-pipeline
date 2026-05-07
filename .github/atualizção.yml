@@ -1,0 +1,26 @@
+name: Pipeline Simples
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Instalar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Verificar Java
+        run: java -version
+
+      - name: Executar teste simples
+        run: echo "Pipeline funcionando com sucesso"
